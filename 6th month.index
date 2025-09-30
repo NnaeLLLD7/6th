@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy 6th Monthsary Babiii</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Great+Vibes&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f5f0e6; /* parchment base */
+      color: #3e2c1c;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .background-image {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url("Photos/pexels-arina-krasnikova-7002683.jpg") repeat;
+      background-color: #f5f0e6;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    /* Moving Texts */
+    .marquee {
+      position: fixed;
+      white-space: nowrap;
+      font-size: 5rem;
+      font-family: Impact, sans-serif;
+      color: #5a4632;
+      opacity: 0.12;
+      z-index: 1;
+      width: 100%;
+    }
+    .marquee1 { top: 10%; animation: marquee1 30s linear infinite; }
+    .marquee2 { top: 25%; animation: marquee2 40s linear infinite; }
+    .marquee3 { top: 40%; animation: marquee3 50s linear infinite; }
+    .marquee4 { top: 55%; animation: marquee4 35s linear infinite; }
+    .marquee5 { top: 70%; animation: marquee5 45s linear infinite; }
+    .marquee6 { top: 85%; animation: marquee6 60s linear infinite; }
+    @keyframes marquee1 { 0% { transform: translateX(100%);} 100% { transform: translateX(-100%);} }
+    @keyframes marquee2 { 0% { transform: translateX(-100%);} 100% { transform: translateX(100%);} }
+    @keyframes marquee3 { 0% { transform: translateX(100%);} 100% { transform: translateX(-100%);} }
+    @keyframes marquee4 { 0% { transform: translateX(-100%);} 100% { transform: translateX(100%);} }
+    @keyframes marquee5 { 0% { transform: translateX(100%);} 100% { transform: translateX(-100%);} }
+    @keyframes marquee6 { 0% { transform: translateX(-100%);} 100% { transform: translateX(100%);} }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: rgba(255, 248, 220, 0.85);
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border: 1px solid #d9c7a1;
+      margin-top: 3rem;
+    }
+    .container h1 {
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      color: #5a3e1a;
+      margin-bottom: 1.5rem;
+    }
+    .container p {
+      line-height: 1.8;
+      text-align: justify;
+      font-size: 1.15rem;
+      font-family: 'Poppins', serif;
+      color: #3e2c1c;
+    }
+    #typewriter {
+      margin-top: 1rem;
+      font-size: 1.3rem;
+      font-family: 'Great Vibes', cursive;
+      color: #5a3e1a;
+    }
+    #countdown {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      font-family: 'Poppins', sans-serif;
+      color: #5a4632;
+      text-align: center;
+    }
+
+    /* Polaroid Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 3rem auto;
+      max-width: 1000px;
+      position: relative;
+      z-index: 2;
+    }
+    .polaroid {
+      position: relative;
+      background: #fffdf7;
+      padding: 10px 10px 30px 10px;
+      border-radius: 8px;
+      border: 5px solid rgb(238, 121, 25);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease;
+    }
+    .polaroid:nth-child(2) { transform: rotate(2deg); }
+    .polaroid:nth-child(3) { transform: rotate(-1deg); }
+    .polaroid img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+    .polaroid:hover { transform: scale(1.05) rotate(0deg); }
+
+    /* Captions */
+    .caption {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      font-family: 'Dancing Script', cursive;
+    }
+    .polaroid:hover .caption { opacity: 1; }
+
+    /* Fortune button */
+    .fortune-btn {
+      background: #e3b778;
+      border: none;
+      padding: 10px 15px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+      font-family: 'Dancing Script', cursive;
+    }
+    #fortune {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-family: 'Great Vibes', cursive;
+      color: #5a3e1a;
+      text-align: center;
+    }
+
+    @media(min-width: 768px) {
+      .gallery { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* Fireflies */
+    .firefly {
+      position: fixed;
+      background: radial-gradient(circle, rgba(255,255,200,1) 30%, rgba(255,255,200,0) 80%);
+      border-radius: 50%;
+      width: 6px;
+      height: 6px;
+      opacity: 0.8;
+      animation: move 20s linear infinite;
+      z-index: 0;
+    }
+    @keyframes move {
+      from { transform: translate(0,0); }
+      to { transform: translate(100vw, 100vh); }
+    }
+
+    canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="background-image"></div>
+
+  <!-- Moving Background Texts -->
+  <div class="marquee marquee1">Happy 6th Monthsary Babiii </div>
+  <div class="marquee marquee2">Thank you</div>
+  <div class="marquee marquee3">For The Love that you make me feel </div>
+  <div class="marquee marquee4">I love youuu</div>
+  <div class="marquee marquee5">Stay Strong Loveee</div>
+  <div class="marquee marquee6">I'm so grateful to have you in my life</div>
+
+  <canvas id="heartsCanvas"></canvas>
+
+  <div class="container">
+    <h1>Happy 6th Monthsary, Babiii 💚</h1>
+    <p>
+      Happy 6th monthsary to us, my love. I honestly don’t even know where to start because my heart is overflowing with so many feelings right now I can’t believe it’s already been half a year since our story began. Six months might sound short to some people, but to me, it feels like such a beautiful chapter already one that I’ll cherish forever. Every day with you, even from a distance, has been worth every second. And today, I just want to pour everything out the love I feel for you, the gratitude in my heart, my apologies for the times I’ve messed up, and my dreams for our future together.
+
+Being in a long-distance relationship isn’t the easiest road to take. People sometimes underestimate it. They think it’s all just waiting and missing each other, but Babiii, I know you feel it too this connection we’ve built is so real, so strong, and so deep that even thousands of miles apart, I feel your presence with me. I carry you with me everywhere I go whether I’m lying in bed at night thinking of you, waking up to your messages that make my mornings brighter, or just randomly smiling when a song, a place, or even just a random word reminds me of you.
+
+Before you, I never thought I could love someone this much from afar. But you’ve changed the way I see love. You’ve taught me patience, understanding, and the beauty of cherishing the little things. Sometimes, it’s not about grand dates or expensive gifts. For us, it’s about those late-night calls when we’re both sleepy but don’t want to hang up yet, the silly arguments that end with laughter, the “good morning” and “goodnight” messages that make me feel so secure, and the way you reassure me that even though we’re not physically together, our hearts are always connected.
+
+You’ve given me strength during my hardest days. Whenever I feel weak or lost, I just think of you and I suddenly feel like I can handle anything. And even when we have our small fights, even when misunderstandings get in the way, at the end of the day, all I can think of is how much I don’t ever want to lose you. You’re not just my girlfriend, you’re my partner, my safe place, my best friend, and my future.
+
+I know I’m not perfect, Babiii. I know there are times I’ve made you upset, times I’ve argued when I should’ve just listened, times I let pride or stubbornness get in the way. And for that, I’m truly sorry. Please know that whenever we fight, it’s never because I don’t love you enough it’s actually the opposite. I love you so much that sometimes my emotions get ahead of me. But even through those moments, my heart always chooses you.
+
+I never want you to doubt my love because of my mistakes. I’ll keep learning, I’ll keep growing, and I’ll keep trying to be better not just for myself, but for you, for us. Thank you for your patience, for staying with me even during those tough moments. Thank you for reminding me that love isn’t about never fighting it’s about choosing each other after the fight, every single time. And Babiii, I’ll always choose you.
+
+Babiii, you are the sweetest part of my life. You make me laugh in ways no one else can. You calm me when my thoughts get too loud. You inspire me with how caring and genuine you are. The way you support me, the way you make me feel like I’m enough even when I doubt myself you don’t know how much that means to me.
+
+Sometimes I just sit and think about you. Your voice, your laugh, the way you call me yours, the little things you do that melt my heart. I miss your hugs even though I haven’t felt them in person yet, but I know when that day comes, I won’t ever want to let you go. Just imagining holding you makes me smile so big, and I hold on to that dream because I know it’s going to happen.
+
+Babiii, one of the things that excites me the most is our future. I know we talk about it sometimes, but I want you to know just how much I’m looking forward to building a life with you. I can see us doing all the simple things together like waking up next to each other, cooking meals side by side, going on spontaneous adventures, watching movies on the couch, and falling asleep holding hands.
+
+I want to travel with you, see the world through your eyes, and create memories that we’ll look back on with smiles and laughter. I want to support your dreams, cheer for you, and be by your side in everything you want to achieve. And Babiii, I hope you know I’ll always work hard to build a life where you feel safe, loved, and cared for.
+
+One day, this distance will just be a memory a chapter in our love story that we’ll proudly tell, because it made us stronger, it made us value each other even more, and it proved that our love is real.
+
+On this 6th monthsary, I want to promise you a few things, Babiii. I promise to always love you with everything I have. I promise to communicate better, to listen more, to understand deeper, and to never let small arguments come between us. I promise to stay loyal, faithful, and true to you, no matter how hard the distance gets. And most of all, I promise to keep fighting for us because you are worth every fight, every mile, every wait.
+
+Six months, Babiii. Six beautiful months of laughter, love, lessons, and dreams. And this is just the beginning. I can’t wait to celebrate our first year, our anniversaries beyond that, and eventually the rest of our lives together.
+
+Thank you for being my person. Thank you for loving me even when I make mistakes. Thank you for choosing me every day, even when distance tries to make it hard. You are my greatest blessing, Babiii, and I’ll spend the rest of my life showing you just how much you mean to me.
+
+And Babiii, I know I might be like this sometimes imperfect, sometimes stubborn, sometimes failing to express things the right way but please believe me when I say this: I’ll do everything for you, I’ll flip the impossible to possible for you, Babiii. Because you’re worth it. You’re worth every effort, every sacrifice, every dream I need to chase, and every mile I need to cross.
+
+Happy 6th monthsary, my love. Here’s to us, to our journey, to our future, and to the endless love we’ll keep building together.
+    </p>
+    <p id="typewriter"></p>
+    <p id="countdown"></p>
+    <button onclick="showFortune()" class="fortune-btn">💌 Open a Love Note</button>
+    <p id="fortune"></p>
+  </div>
+
+  <!-- Polaroid Gallery -->
+  <div class="gallery">
+    <div class="polaroid">
+      <img src="Photos/IMG_0192.JPG" alt="Memory 1" />
+      <div class="caption">My Favorite picture of us so far 💕</div>
+    </div>
+    <div class="polaroid">
+      <img src="Photos/Heart 2.png" alt="Memory 2" />
+      <div class="caption"> Our Couple wallpapers 💚</div>
+    </div>
+    <div class="polaroid">
+      <img src="Photos/Colorful Modern Minimalist Watercolor Art Square Canvas Print .png" alt="Memory 3" />
+      <div class="caption"> We'll see it through the future lovee✨</div>
+    </div>
+  </div>
+
+  <script>
+    /* Floating hearts + emojis */
+    const canvas = document.getElementById("heartsCanvas");
+    const ctx = canvas.getContext("2d");
+    let floaters = [];
+    const colors = ["#ff6b81", "#ff4757", "#ff7f50", "#ffa502"];
+    const emojis = ["💚", "🌸", "🐻", "💕", "🍓", "✨", "💌"];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    function createFloater() {
+      const x = Math.random() * canvas.width;
+      const y = canvas.height + 30;
+      const type = Math.random() < 0.6 ? "heart" : "emoji";
+      const size = Math.random() * 10 + 15;
+      const speed = Math.random() * 1.5 + 0.5;
+      if (type === "heart") {
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        floaters.push({ type, x, y, size, speed, color });
+      } else {
+        const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+        const opacityPhase = Math.random() * Math.PI * 2;
+        floaters.push({ type, x, y, size, speed, emoji, opacityPhase });
+      }
+    }
+    function drawFloaters() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < floaters.length; i++) {
+        const f = floaters[i];
+        if (f.type === "heart") {
+          ctx.fillStyle = f.color;
+          ctx.beginPath();
+          ctx.moveTo(f.x, f.y);
+          ctx.bezierCurveTo(f.x - f.size, f.y - f.size, f.x - f.size*2, f.y + f.size, f.x, f.y + f.size*2);
+          ctx.bezierCurveTo(f.x + f.size*2, f.y + f.size, f.x + f.size, f.y - f.size, f.x, f.y);
+          ctx.fill();
+        } else {
+          const twinkle = (Math.sin(Date.now() / 300 + f.opacityPhase) + 1) / 2;
+          ctx.globalAlpha = 0.5 + twinkle * 0.5;
+          ctx.font = `${f.size}px sans-serif`;
+          ctx.fillText(f.emoji, f.x, f.y);
+          ctx.globalAlpha = 1.0;
+        }
+        f.y -= f.speed;
+        if (f.y < -30) floaters.splice(i, 1);
+      }
+    }
+    function loop() {
+      createFloater();
+      drawFloaters();
+      requestAnimationFrame(loop);
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+    loop();
+
+    /* Typewriter */
+    const message = "Every day with you feels like magic, Babiii 💚. You are my forever and always.";
+    let i = 0;
+    function typeWriter() {
+      if (i < message.length) {
+        document.getElementById("typewriter").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+
+    /* Countdown */
+    const startDate = new Date("April 1, 2025");
+    function updateCountdown() {
+      const now = new Date();
+      const diff = now - startDate;
+      const days = Math.floor(diff / (1000*60*60*24));
+      document.getElementById("countdown").innerText =
+        "We’ve been together for " + days + " days 💚";
+    }
+
+    /* Fortune notes */
+    const fortunes = [
+      "You’re the best part of my every day 💚",
+      "I’d choose you in every lifetime 💕",
+      "With you, forever feels too short ✨",
+      "My love for you grows stronger every sunrise 🌅",
+      "You make my world brighter 🌸"
+    ];
+    function showFortune() {
+      const fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+      document.getElementById("fortune").innerText = fortune;
+    }
+
+    /* Fireflies */
+    for (let i = 0; i < 20; i++) {
+      let firefly = document.createElement("div");
+      firefly.className = "firefly";
+      firefly.style.top = Math.random() * window.innerHeight + "px";
+      firefly.style.left = Math.random() * window.innerWidth + "px";
+      firefly.style.animationDuration = (15 + Math.random()*10) + "s";
+      document.body.appendChild(firefly);
+    }
+
+    /* Run extras on load */
+    window.onload = () => {
+      typeWriter();
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    };
+  </script>
+</body>
+</html>
